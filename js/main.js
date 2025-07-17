@@ -161,21 +161,23 @@ class HeySantaLanding {
         // Prevent the CSS hover animation from interfering
         button.style.pointerEvents = 'none';
         button.style.transform = 'scale(0.95)';
+        button.style.transition = 'all 0.5s ease'; // Set 0.5s transition
         
         setTimeout(() => {
             button.style.transform = 'scale(1.05)';
-        }, 100);
+        }, 250); // Half of 0.5s
         
         setTimeout(() => {
             button.style.transform = 'scale(1)';
             button.style.pointerEvents = 'auto';
-        }, 200);
+        }, 500); // 0.5s total
     }
 
     // Reset button state
     resetButtonState(button) {
         button.style.transform = 'scale(1)';
         button.style.pointerEvents = 'auto';
+        button.style.transition = 'all 0.5s ease'; // Ensure 0.5s transition
         button.classList.remove('clicked');
     }
 
