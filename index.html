@@ -17,6 +17,24 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <div class="logo-img">
+                    <img src="assets/images/mangdang.png" alt="Mangdang Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='🎅';">
+                </div>
+                HeySanta
+            </a>
+            
+            <nav class="nav">
+                <a href="#christmas" class="nav-link">A Special Christmas</a>
+                <a href="#specs" class="nav-link">Specs</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+            </nav>
+        </div>
+    </header>
+
     <!-- Background Video -->
     <div class="video-background">
         <video autoplay muted loop playsinline>
@@ -35,7 +53,22 @@
             <!-- Subtitle -->
             <p class="hero-subtitle fade-in-up">A Gift for your merriest Christmas</p>
             
-            <!-- Countdown Timer -->
+            <!-- Call-to-Action Buttons (Moved up before countdown) -->
+            <div class="cta-container fade-in-up">
+                <button id="waitlist-btn" class="btn btn-primary">
+                    📧 Sign up for Email
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </button>
+                
+                <button id="kickstarter-btn" class="btn btn-secondary" disabled>
+                    🚀 Back on Kickstarter<br>
+                    <span>(Coming Soon)</span>
+                </button>
+            </div>
+            
+            <!-- Countdown Timer (Moved after CTAs) -->
             <div class="countdown-container fade-in-up">
                 <h3 class="countdown-title">🎄 Launching Soon! 🎄</h3>
                 <div id="countdown" class="countdown">
@@ -57,21 +90,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Call-to-Action Buttons -->
-            <div class="cta-container fade-in-up">
-                <button id="waitlist-btn" class="btn btn-primary">
-                    🎁 Join the Waitlist for Early Access
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                </button>
-                
-                <button id="kickstarter-btn" class="btn btn-secondary" disabled>
-                    🚀 Back on Kickstarter
-                    <span>(Coming Soon)</span>
-                </button>
-            </div>
         </div>
         
         <!-- Scroll Indicator -->
@@ -80,6 +98,28 @@
                 <div class="scroll-wheel"></div>
             </div>
             <span class="scroll-text">Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- Placeholder Sections for Navigation -->
+    <section id="christmas" class="section-placeholder">
+        <div class="placeholder-content">
+            <h2>🎄 A Special Christmas</h2>
+            <p>Content coming soon...</p>
+        </div>
+    </section>
+
+    <section id="specs" class="section-placeholder">
+        <div class="placeholder-content">
+            <h2>📋 Specs</h2>
+            <p>Content coming soon...</p>
+        </div>
+    </section>
+
+    <section id="timeline" class="section-placeholder">
+        <div class="placeholder-content">
+            <h2>📅 Timeline</h2>
+            <p>Content coming soon...</p>
         </div>
     </section>
 
@@ -102,10 +142,10 @@
                 </div>
                 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-primary" style="flex: 1;">
+                    <button type="submit" class="btn btn-primary">
                         🎁 Subscribe
                     </button>
-                    <button type="button" id="close-modal" class="btn btn-secondary" style="flex: 0 0 auto;">
+                    <button type="button" id="close-modal" class="btn btn-secondary">
                         Cancel
                     </button>
                 </div>
