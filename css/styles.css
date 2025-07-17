@@ -424,16 +424,17 @@ body {
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 2rem; /* Account for hero padding */
+    right: 2rem; /* Account for hero padding */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     z-index: 10;
-    width: fit-content; /* Better width control */
-    text-align: center; /* Ensure text is centered */
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto; /* Center within the constrained space */
 }
 
 .scroll-mouse {
