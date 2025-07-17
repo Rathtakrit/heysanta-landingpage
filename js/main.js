@@ -13,6 +13,7 @@ class HeySantaLanding {
         this.initModal();
         this.initAnimations();
         this.initEventListeners();
+        this.initScrollEffects(); // Added scroll effects
     }
 
     // Countdown Timer Functionality
@@ -153,6 +154,46 @@ class HeySantaLanding {
         const scrollIndicator = document.querySelector('.scroll-indicator');
         if (scrollIndicator) {
             scrollIndicator.classList.add('bounce-gentle');
+        }
+    }
+
+    // Scroll Effects - Progress Bar and Auto-Hide Navbar
+    initScrollEffects() {
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector('.header');
+        const progressFill = document.querySelector('.progress-fill');
+        
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Update progress bar
+            this.updateProgressBar(progressFill);
+            
+            // Auto-hide navbar
+            this.updateNavbarVisibility(header, currentScrollY, lastScrollY);
+            
+            lastScrollY = currentScrollY;
+        });
+    }
+
+    // Update reading progress bar
+    updateProgressBar(progressFill) {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrolled = window.scrollY;
+        const progress = (scrolled / (documentHeight - windowHeight)) * 100;
+        
+        progressFill.style.width = Math.min(progress, 100) + '%';
+    }
+
+    // Auto-hide navbar based on scroll direction
+    updateNavbarVisibility(header, currentScrollY, lastScrollY) {
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down - hide header
+            header.classList.add('hidden');
+        } else {
+            // Scrolling up - show header
+            header.classList.remove('hidden');
         }
     }
 
