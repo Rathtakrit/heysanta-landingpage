@@ -20,11 +20,10 @@
     <!-- Header Navigation -->
     <header class="header">
         <div class="header-content">
-            <a href="#" class="logo">
+            <a href="https://mangdang.org" class="logo" target="_blank" rel="noopener">
                 <div class="logo-img">
                     <img src="assets/images/mangdang.png" alt="Mangdang Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='🎅';">
                 </div>
-                HeySanta
             </a>
             
             <nav class="nav">
@@ -35,17 +34,17 @@
         </div>
     </header>
 
-    <!-- Background Video -->
-    <div class="video-background">
-        <video autoplay muted loop playsinline>
-            <source src="assets/videos/christmas-background.mp4" type="video/mp4">
-            <!-- Fallback for browsers that don't support video -->
-        </video>
-    </div>
-    <div class="video-overlay"></div>
-
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Background Video (now inside hero) -->
+        <div class="video-background">
+            <video autoplay muted loop>
+                <source src="assets/videos/christmas-background.mp4" type="video/mp4">
+                <!-- Fallback for browsers that don't support video -->
+            </video>
+        </div>
+        <div class="video-overlay"></div>
+        
         <div class="hero-content">
             <!-- Main Title -->
             <h1 class="hero-title fade-in-up">Hey Santa</h1>
@@ -53,7 +52,7 @@
             <!-- Subtitle -->
             <p class="hero-subtitle fade-in-up">A Gift for your merriest Christmas</p>
             
-            <!-- Call-to-Action Buttons (Moved up before countdown) -->
+            <!-- Call-to-Action Button (only sign up button) -->
             <div class="cta-container fade-in-up">
                 <button id="waitlist-btn" class="btn btn-primary">
                     📧 Sign up for Email
@@ -61,34 +60,6 @@
                         <path d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
                 </button>
-                
-                <button id="kickstarter-btn" class="btn btn-secondary" disabled>
-                    🚀 Back on Kickstarter<br>
-                    <span>(Coming Soon)</span>
-                </button>
-            </div>
-            
-            <!-- Countdown Timer (Moved after CTAs) -->
-            <div class="countdown-container fade-in-up">
-                <h3 class="countdown-title">🎄 Launching Soon! 🎄</h3>
-                <div id="countdown" class="countdown">
-                    <div class="countdown-item">
-                        <span id="days" class="countdown-number">00</span>
-                        <span class="countdown-label">Days</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours" class="countdown-number">00</span>
-                        <span class="countdown-label">Hours</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes" class="countdown-number">00</span>
-                        <span class="countdown-label">Minutes</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds" class="countdown-number">00</span>
-                        <span class="countdown-label">Seconds</span>
-                    </div>
-                </div>
             </div>
         </div>
         

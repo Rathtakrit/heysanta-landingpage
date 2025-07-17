@@ -8,7 +8,7 @@
 */
 
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Roboto:wght@300;400;500;700&family=Lobster+Two:wght@400;700&family=Beth+Ellen&display=swap');
 
 /* CSS Variables */
 :root {
@@ -134,11 +134,12 @@ body {
     text-align: center;
     padding: 6rem 2rem 2rem; /* Added top padding for header */
     position: relative;
+    overflow: hidden; /* Added to contain video */
 }
 
-/* Background Video */
-.video-background {
-    position: fixed;
+/* Background Video - Constrained to hero only */
+.hero .video-background {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -146,15 +147,15 @@ body {
     z-index: -2;
 }
 
-.video-background video {
+.hero .video-background video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0.3;
 }
 
-.video-overlay {
-    position: fixed;
+.hero .video-overlay {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -274,18 +275,21 @@ body {
     background: linear-gradient(135deg, var(--red) 0%, #a04d40 100%);
     color: var(--white);
     box-shadow: 0 4px 15px rgba(127, 62, 50, 0.3);
-    padding: 1rem 3rem;
+    padding: 1.5rem 4rem; /* Made bigger */
     font-weight: 600;
+    font-size: 1.2rem; /* Increased font size */
+    transform: scale(1);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(127, 62, 50, 0.4);
-    background: linear-gradient(135deg, #a04d40 0%, var(--red) 100%);
+    transform: translateY(-2px) scale(1.05); /* Added scale on hover */
+    box-shadow: 0 6px 25px rgba(127, 62, 50, 0.5); /* Enhanced shadow */
+    background: linear-gradient(135deg, var(--green) 0%, #4a5a50 100%); /* Changed hover color */
 }
 
 .btn-primary:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(1.02);
 }
 
 .btn-secondary {
