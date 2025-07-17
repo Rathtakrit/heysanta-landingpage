@@ -350,7 +350,7 @@ body {
 }
 
 .btn-primary:hover:not(:disabled) {
-    transform: translateY(-2px) scale(2); /* Grows to 200% */
+    transform: translateY(-2px) scale(1.5); /* Grows to 200% */
     box-shadow: 0 6px 25px rgba(127, 62, 50, 0.5);
     background: linear-gradient(135deg, var(--green) 0%, #4a5a50 100%);
 }
@@ -429,10 +429,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Added for better centering */
+    justify-content: center;
     gap: 0.5rem;
-    z-index: 10; /* Ensure it's above other elements */
-    width: auto; /* Ensure it doesn't stretch */
+    z-index: 10;
+    width: fit-content; /* Better width control */
+    text-align: center; /* Ensure text is centered */
 }
 
 .scroll-mouse {
@@ -754,11 +755,9 @@ html {
         margin: 1rem;
     }
     
-    /* Scroll Indicator responsive */
+    /* Hide Scroll Indicator on tablet and mobile */
     .scroll-indicator {
-        bottom: 1.5rem; /* Adjust for mobile */
-        left: 50%;
-        transform: translateX(-50%);
+        display: none;
     }
     
     /* Header Kickstarter Link responsive */
@@ -815,17 +814,6 @@ html {
     
     .countdown-label {
         font-size: 0.6rem;
-    }
-    
-    /* Scroll Indicator responsive for very small screens */
-    .scroll-indicator {
-        bottom: 1rem; /* Closer to bottom on small screens */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .scroll-text {
-        font-size: 0.65rem; /* Smaller text on mobile */
     }
     
     /* Header Kickstarter Link responsive for very small screens */
