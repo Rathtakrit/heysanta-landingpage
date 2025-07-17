@@ -199,27 +199,39 @@ class HeySantaLanding {
 
     // Button Animations
     animateButton(button) {
-        // Prevent the CSS hover animation from interfering
+        // Prevent multiple clicks during animation
+        if (button.disabled) return;
+        
+        button.disabled = true;
         button.style.pointerEvents = 'none';
         button.style.transform = 'scale(0.95)';
-        button.style.transition = 'all 0.5s ease'; // Set 0.5s transition
+        button.style.transition = 'all 0.5s ease';
         
         setTimeout(() => {
             button.style.transform = 'scale(1.05)';
-        }, 250); // Half of 0.5s
+        }, 250);
         
         setTimeout(() => {
             button.style.transform = 'scale(1)';
             button.style.pointerEvents = 'auto';
-        }, 500); // 0.5s total
+            button.disabled = false;
+        }, 500);
     }
 
     // Reset button state
     resetButtonState(button) {
-        button.style.transform = 'scale(1)';
-        button.style.pointerEvents = 'auto';
-        button.style.transition = 'all 0.5s ease'; // Ensure 0.5s transition
+        // Clear all inline styles to let CSS take over
+        button.style.transform = '';
+        button.style.pointerEvents = '';
+        button.style.transition = '';
         button.classList.remove('clicked');
+        
+        // Force a reflow to ensure styles are applied
+        button.offsetHeight;
+        
+        // Re-enable the button explicitly
+        button.disabled = false;
+        button.style.cursor = 'pointer';
     }
 
     // Event Listeners
@@ -274,6 +286,11 @@ class HeySantaLanding {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.modal.classList.contains('show')) {
                 this.hideModal();
+                // Reset the sign-up button state when modal closes via Escape
+                const waitlistBtn = document.getElementById('waitlist-btn');
+                if (waitlistBtn) {
+                    this.resetButtonState(waitlistBtn);
+                }
             }
         });
 
