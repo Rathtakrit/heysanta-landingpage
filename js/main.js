@@ -316,6 +316,15 @@ class HeySantaLanding {
                 });
             });
         }
+
+        // Footer waitlist button
+        const footerWaitlistBtn = document.getElementById('footer-waitlist-btn');
+        if (footerWaitlistBtn) {
+            footerWaitlistBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.openModal();
+            });
+        }
     }
 
     // Utility Methods
