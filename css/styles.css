@@ -56,17 +56,19 @@ body {
 /* Header Styles */
 .header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 1rem; /* Add top margin for floating effect */
+    left: 1rem; /* Add left margin */
+    right: 1rem; /* Add right margin */
     z-index: 100;
     background: rgba(53, 63, 57, 0.95); /* Green background */
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(153, 135, 117, 0.2);
+    border: 1px solid rgba(153, 135, 117, 0.2); /* Changed from border-bottom to border */
+    border-radius: 16px; /* Add corner radius */
     padding: 1rem 0;
     transition: all 0.3s ease;
     transform: translateY(0); /* Added for auto-hide */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Add floating shadow */
 }
 
 .header.hidden {
@@ -702,6 +704,13 @@ html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .header {
+        top: 0.5rem; /* Smaller top margin on tablets */
+        left: 0.5rem; /* Smaller left margin on tablets */
+        right: 0.5rem; /* Smaller right margin on tablets */
+        border-radius: 12px; /* Smaller border radius on tablets */
+    }
+    
     .header-content {
         padding: 0 1rem;
     }
@@ -769,6 +778,13 @@ html {
 }
 
 @media (max-width: 480px) {
+    .header {
+        top: 0.25rem; /* Even smaller top margin on phones */
+        left: 0.25rem; /* Even smaller left margin on phones */
+        right: 0.25rem; /* Even smaller right margin on phones */
+        border-radius: 8px; /* Smaller border radius on phones */
+    }
+    
     .header-content {
         flex-direction: column;
         gap: 1rem;
