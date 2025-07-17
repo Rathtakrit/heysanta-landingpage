@@ -251,6 +251,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 4rem;
+    transition: all 0.3s ease; /* Added for smooth movement */
 }
 
 .btn {
@@ -261,54 +262,107 @@ body {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
+    justify-content: center; /* Center content */
     gap: 0.5rem;
-    transition: all 0.3s ease;
+    transition: all 1s ease; /* Changed to 1 second */
     border: none;
     cursor: pointer;
     font-size: 1rem;
     letter-spacing: 0.5px;
+    min-width: 180px; /* Ensure consistent button widths */
 }
 
+/* Hero Sign Up Button (Primary) */
 .btn-primary {
     background: linear-gradient(135deg, var(--red) 0%, #a04d40 100%);
     color: var(--white);
     box-shadow: 0 4px 15px rgba(127, 62, 50, 0.3);
-    padding: 1rem 2rem; /* Made same size as secondary button */
+    padding: 1rem 2rem;
     font-weight: 600;
-    font-size: 1rem; /* Same font size as secondary button */
+    font-size: 1rem;
     transform: scale(1);
-    transition: all 0.3s ease;
+    transition: all 1s ease; /* 1 second transition */
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px) scale(2); /* Changed to 200% scale */
-    box-shadow: 0 6px 25px rgba(127, 62, 50, 0.5); /* Enhanced shadow */
-    background: linear-gradient(135deg, var(--green) 0%, #4a5a50 100%); /* Changed hover color */
-}
-
-/* Make Kickstarter button shrink when sign-up button is hovered */
-.cta-container:hover .btn-primary:hover ~ .btn-secondary,
-.cta-container:hover .btn-primary:hover + .btn-secondary {
-    transform: translateY(-1px) scale(0.5); /* Shrink to 50% */
-    opacity: 0.3; /* Make it more transparent */
+    transform: translateY(-2px) scale(2); /* Grows to 200% */
+    box-shadow: 0 6px 25px rgba(127, 62, 50, 0.5);
+    background: linear-gradient(135deg, var(--green) 0%, #4a5a50 100%);
 }
 
 .btn-primary:active {
     transform: translateY(0) scale(1.02);
 }
 
+/* Kickstarter Button (Secondary) */
 .btn-secondary {
     background: rgba(153, 135, 117, 0.2);
     color: var(--cream);
     border: 2px solid var(--cream);
     opacity: 0.6;
     cursor: not-allowed;
-    transition: all 0.3s ease; /* Added transition for smooth scaling */
+    transition: all 1s ease; /* 1 second transition */
 }
 
 .btn-secondary:hover {
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(0.8); /* Shrinks instead of grows */
     box-shadow: 0 4px 10px rgba(153, 135, 117, 0.2);
+    opacity: 0.4;
+}
+
+/* Modal Form Buttons - Separate styles to prevent conflicts */
+.form-actions .btn {
+    min-width: 120px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease; /* Faster transition for modal buttons */
+}
+
+/* Modal Subscribe Button */
+.form-actions .btn-primary {
+    background: linear-gradient(135deg, var(--green) 0%, #4a5a50 100%);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(53, 63, 57, 0.3);
+    transform: scale(1);
+}
+
+.form-actions .btn-primary:hover {
+    transform: translateY(-1px) scale(1.05); /* Much smaller scale for modal */
+    box-shadow: 0 6px 20px rgba(53, 63, 57, 0.4);
+    background: linear-gradient(135deg, var(--red) 0%, #a04d40 100%);
+}
+
+/* Modal Cancel Button - Inactive Style */
+.form-actions .btn-secondary {
+    background: rgba(153, 135, 117, 0.1);
+    color: var(--cream);
+    border: 2px solid rgba(153, 135, 117, 0.3);
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+.form-actions .btn-secondary:hover {
+    transform: none; /* No hover effect for cancel button */
+    box-shadow: none;
+    opacity: 0.5;
+}
+
+/* Center buttons when one grows */
+.cta-container:hover {
+    transform: translateX(0); /* Keep container centered */
+}
+
+/* Adjust positioning when primary button grows */
+.cta-container:hover .btn-primary:hover {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Adjust secondary button positioning when primary grows */
+.cta-container:hover .btn-primary:hover + .btn-secondary {
+    transform: translateY(-1px) scale(0.5) translateX(-20px); /* Move closer to center */
+    opacity: 0.3;
 }
 
 /* Scroll Indicator */

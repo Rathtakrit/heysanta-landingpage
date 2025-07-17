@@ -77,6 +77,12 @@ class HeySantaLanding {
         this.modal.classList.remove('show');
         document.body.style.overflow = 'auto';
         this.resetForm();
+        
+        // Reset the sign-up button state when modal closes
+        const waitlistBtn = document.getElementById('waitlist-btn');
+        if (waitlistBtn) {
+            this.resetButtonState(waitlistBtn);
+        }
     }
 
     resetForm() {
@@ -152,6 +158,8 @@ class HeySantaLanding {
 
     // Button Animations
     animateButton(button) {
+        // Prevent the CSS hover animation from interfering
+        button.style.pointerEvents = 'none';
         button.style.transform = 'scale(0.95)';
         
         setTimeout(() => {
@@ -160,7 +168,15 @@ class HeySantaLanding {
         
         setTimeout(() => {
             button.style.transform = 'scale(1)';
+            button.style.pointerEvents = 'auto';
         }, 200);
+    }
+
+    // Reset button state
+    resetButtonState(button) {
+        button.style.transform = 'scale(1)';
+        button.style.pointerEvents = 'auto';
+        button.classList.remove('clicked');
     }
 
     // Event Listeners
@@ -182,6 +198,11 @@ class HeySantaLanding {
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
                 this.hideModal();
+                // Reset the sign-up button state when modal closes
+                const waitlistBtn = document.getElementById('waitlist-btn');
+                if (waitlistBtn) {
+                    this.resetButtonState(waitlistBtn);
+                }
             });
         }
 
@@ -190,6 +211,11 @@ class HeySantaLanding {
             this.modal.addEventListener('click', (e) => {
                 if (e.target === this.modal) {
                     this.hideModal();
+                    // Reset the sign-up button state when modal closes
+                    const waitlistBtn = document.getElementById('waitlist-btn');
+                    if (waitlistBtn) {
+                        this.resetButtonState(waitlistBtn);
+                    }
                 }
             });
         }
