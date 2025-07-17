@@ -779,10 +779,7 @@ html {
 
 @media (max-width: 480px) {
     .header {
-        top: 0.25rem; /* Even smaller top margin on phones */
-        left: 0.25rem; /* Even smaller left margin on phones */
-        right: 0.25rem; /* Even smaller right margin on phones */
-        border-radius: 8px; /* Smaller border radius on phones */
+        display: none; /* Hide header completely on phones */
     }
     
     .header-content {
@@ -801,7 +798,7 @@ html {
     }
     
     .hero {
-        padding: 8rem 1rem 1rem; /* More space for stacked header */
+        padding: 2rem 1rem 1rem; /* Reduced top padding since no header */
     }
     
     .hero-title {
