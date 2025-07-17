@@ -41,21 +41,19 @@ body {
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(53, 63, 57, 0.95); /* Changed to green */
-    backdrop-filter: blur(10px);
+    background: rgba(53, 63, 57, 0.95); /* Green background */
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(153, 135, 117, 0.2);
     padding: 1rem 0;
     transition: all 0.3s ease;
 }
-
 
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    color: var(--cream);
     justify-content: space-between;
     padding: 0 2rem;
 }
@@ -66,7 +64,7 @@ body {
     gap: 0.5rem;
     font-family: 'Archivo Black', sans-serif;
     font-size: 1.5rem;
-    color: var(--red);
+    color: var(--cream); /* Changed to cream color */
     text-decoration: none;
 }
 
@@ -97,7 +95,7 @@ body {
 .nav-link {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    color: var(--green);
+    color: var(--cream); /* Changed to cream color */
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -106,8 +104,8 @@ body {
 }
 
 .nav-link:hover {
-    background: rgba(127, 62, 50, 0.1);
-    color: var(--red);
+    background: rgba(153, 135, 117, 0.2); /* Adjusted hover background */
+    color: var(--white); /* Changed hover color to white for better contrast */
     transform: translateY(-1px);
 }
 
@@ -275,9 +273,9 @@ body {
     background: linear-gradient(135deg, var(--red) 0%, #a04d40 100%);
     color: var(--white);
     box-shadow: 0 4px 15px rgba(127, 62, 50, 0.3);
-    padding: 1.5rem 4rem; /* Made bigger */
+    padding: 1rem 2rem; /* Made same size as secondary button */
     font-weight: 600;
-    font-size: 1.2rem; /* Increased font size */
+    font-size: 1rem; /* Same font size as secondary button */
     transform: scale(1);
     transition: all 0.3s ease;
 }
@@ -356,6 +354,54 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 500;
+}
+
+/* Snowflakes Animation */
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: rgba(226, 221, 215, 0.8);
+    font-size: 1rem;
+    animation: fall linear infinite;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-duration: 10s; animation-delay: 0s; font-size: 0.8rem; }
+.snowflake:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 2s; font-size: 1.2rem; }
+.snowflake:nth-child(3) { left: 30%; animation-duration: 8s; animation-delay: 4s; font-size: 1rem; }
+.snowflake:nth-child(4) { left: 40%; animation-duration: 14s; animation-delay: 1s; font-size: 0.9rem; }
+.snowflake:nth-child(5) { left: 50%; animation-duration: 9s; animation-delay: 3s; font-size: 1.1rem; }
+.snowflake:nth-child(6) { left: 60%; animation-duration: 11s; animation-delay: 5s; font-size: 0.7rem; }
+.snowflake:nth-child(7) { left: 70%; animation-duration: 13s; animation-delay: 0.5s; font-size: 1.3rem; }
+.snowflake:nth-child(8) { left: 80%; animation-duration: 10s; animation-delay: 2.5s; font-size: 1rem; }
+.snowflake:nth-child(9) { left: 90%; animation-duration: 12s; animation-delay: 1.5s; font-size: 0.8rem; }
+.snowflake:nth-child(10) { left: 15%; animation-duration: 8s; animation-delay: 3.5s; font-size: 1.2rem; }
+.snowflake:nth-child(11) { left: 35%; animation-duration: 15s; animation-delay: 4.5s; font-size: 0.9rem; }
+.snowflake:nth-child(12) { left: 55%; animation-duration: 7s; animation-delay: 2.2s; font-size: 1.1rem; }
+.snowflake:nth-child(13) { left: 75%; animation-duration: 11s; animation-delay: 0.8s; font-size: 0.8rem; }
+.snowflake:nth-child(14) { left: 85%; animation-duration: 9s; animation-delay: 3.8s; font-size: 1.4rem; }
+.snowflake:nth-child(15) { left: 25%; animation-duration: 13s; animation-delay: 1.2s; font-size: 1rem; }
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* Animations */
